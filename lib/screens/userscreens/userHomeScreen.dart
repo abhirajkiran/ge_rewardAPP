@@ -173,7 +173,7 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             ),
           ],
         ),
-        bottomNavigationBar: bottomNavWidget()
+        bottomNavigationBar: bottomNavWidget(pageIndex: 0,)
       ),
     );
   }

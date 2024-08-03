@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 import 'package:ge_2/core/colors.dart';
+import 'package:ge_2/screens/userscreens/claimedRewardScreen.dart';
+import 'package:ge_2/screens/userscreens/userHomeScreen.dart';
+import 'package:ge_2/screens/userscreens/widgets/alertScreenWidget.dart';
 import 'package:ge_2/screens/userscreens/widgets/bottomNavWidget.dart';
+import 'package:ge_2/screens/userscreens/widgets/bottomNavWidget_1.dart';
 import 'package:rxdart/rxdart.dart';
 
 class spinWheelScreen extends StatefulWidget {
@@ -13,7 +17,7 @@ class spinWheelScreen extends StatefulWidget {
 
 class _spinWheelScreenState extends State<spinWheelScreen> {
   final selected = BehaviorSubject<int>();
-  // int rewards = 0;
+  int spinCount = 1;
   late String rewards;
 
   List<Widget> items = [
@@ -27,11 +31,11 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
 
   List<String> items1 = [
     '70% Discount On Your Next Periodic Service',
+    '30% Discount On Your Next Periodic Service',
     '70% Discount On Your Next Periodic Service',
+    '50% Discount On Your Next Periodic Service',
     '70% Discount On Your Next Periodic Service',
-    '70% Discount On Your Next Periodic Service',
-    '70% Discount On Your Next Periodic Service',
-    '70% Discount On Your Next Periodic Service',
+    'Free Next Periodic Service',
   ];
 
   @override
@@ -44,6 +48,7 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(.2),
+      bottomNavigationBar: bottomNavWidget1(),
       body: Center(
         child: Column(
           //  crossAxisAlignment: CrossAxisAlignment.center,
@@ -157,9 +162,17 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
             ),
             GestureDetector(
               onTap: () {
-                setState(() {
+                if(spinCount>0){
+                  setState(() {
                   selected.add(Fortune.randomInt(0, items.length));
+                  spinCount--;
                 });
+                }else{
+                  print('error');
+                  showDialog(context: context, builder:(ctx)=>AlertScreenWidget(message: "You Already Claimed The Reward Check Your Rewards Section",page: UserHomeScreen(),page2:claimedRewardPage() ,));
+                  
+                }
+
               },
               child: Container(
                 decoration: BoxDecoration(

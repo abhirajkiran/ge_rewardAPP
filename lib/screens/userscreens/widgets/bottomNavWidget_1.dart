@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ge_2/core/colors.dart';
-import 'package:ge_2/screens/userscreens/claimedRewardScreen.dart';
 import 'package:ge_2/screens/userscreens/userHomeScreen.dart';
 
-class bottomNavWidget extends StatefulWidget {
-   bottomNavWidget({super.key, required this.pageIndex});
-   int pageIndex;
+class bottomNavWidget1 extends StatefulWidget {
+  const bottomNavWidget1({super.key});
+
   @override
-  State<bottomNavWidget> createState() => _bottomNavWidgetState();
+  State<bottomNavWidget1> createState() => _bottomNavWidget1State();
 }
 
-class _bottomNavWidgetState extends State<bottomNavWidget> {
-  
+class _bottomNavWidget1State extends State<bottomNavWidget1> {
+  int pageIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,10 +39,10 @@ class _bottomNavWidgetState extends State<bottomNavWidget> {
                                 builder: (context) => UserHomeScreen()),
                           );
                     setState(() {
-                      widget.pageIndex = 0;
+                      pageIndex = 0;
                     });
                   },
-                  icon:widget.pageIndex == 0
+                  icon: pageIndex == 0
                       ? const Icon(
                           Icons.home_filled,
                           color: Colors.yellow,
@@ -58,17 +57,34 @@ class _bottomNavWidgetState extends State<bottomNavWidget> {
                 IconButton(
                   enableFeedback: false,
                   onPressed: () {
-                    Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => claimedRewardPage()),
-                          );
+                    
                     setState(() {
-                      widget.pageIndex = 1;
+                      pageIndex = 1;
                        
                     });
                   },
-                  icon: widget.pageIndex == 1
+                  icon: pageIndex == 1
+                      ? const Icon(
+                          Icons.shutter_speed,
+                          color:Colors.yellow,
+                          size: 35,
+                        )
+                      : const Icon(
+                          Icons.shutter_speed_outlined,
+                          color: Colors.white,
+                          size: 35,
+                        ),
+                ),
+                IconButton(
+                  enableFeedback: false,
+                  onPressed: () {
+                    
+                    setState(() {
+                      pageIndex = 2;
+                       
+                    });
+                  },
+                  icon: pageIndex == 2
                       ? const Icon(
                           Icons.work_rounded,
                           color:Colors.yellow,
