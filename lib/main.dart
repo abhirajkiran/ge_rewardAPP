@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:ge_2/screens/authentication/loginscreen.dart';
 import 'package:ge_2/screens/userscreens/userHomeScreen.dart';
+import 'package:ge_2/screens/userscreens/wheelScreen.dart';
 
 
 void main() {

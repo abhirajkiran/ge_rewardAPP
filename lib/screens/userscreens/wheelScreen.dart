@@ -13,9 +13,26 @@ class spinWheelScreen extends StatefulWidget {
 
 class _spinWheelScreenState extends State<spinWheelScreen> {
   final selected = BehaviorSubject<int>();
-  int rewards = 0;
+  // int rewards = 0;
+  late String rewards;
 
-  List<int> items = [100, 200, 300, 400, 500];
+  List<Widget> items = [
+    Image.asset('lib/assets/images/70per.png'),
+    Image.asset('lib/assets/images/30perc.png'),
+    Image.asset('lib/assets/images/70per.png'),
+    Image.asset('lib/assets/images/50perc.png'),
+    Image.asset('lib/assets/images/70per.png'),
+    Image.asset('lib/assets/images/service.png')
+  ];
+
+  List<String> items1 = [
+    '70% Discount On Your Next Periodic Service',
+    '70% Discount On Your Next Periodic Service',
+    '70% Discount On Your Next Periodic Service',
+    '70% Discount On Your Next Periodic Service',
+    '70% Discount On Your Next Periodic Service',
+    '70% Discount On Your Next Periodic Service',
+  ];
 
   @override
   void dispose() {
@@ -66,24 +83,65 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
                 animateFirst: false,
                 items: [
                   for (int i = 0; i < items.length; i++) ...<FortuneItem>{
-                    FortuneItem(child: Text(items[i].toString())),
+                    FortuneItem(
+                        child: Center(
+                      child: SizedBox(height: 40, width: 40, child: items[i]),
+                    )),
                   },
                 ],
                 onAnimationEnd: () {
                   setState(() {
-                    rewards = items[selected.value];
+                    //rewards = items1[selected.value];
+                    rewards = items1[selected.value];
                   });
                   print(rewards);
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text("You just won " + rewards.toString()),
+
+                  showDialog(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      backgroundColor: Colors.grey,
+                      title: SizedBox(
+                          height: 200,
+                          child: Center(
+                            child: Stack(children: [
+                              Image(
+                                  image: AssetImage(
+                                      'lib/assets/images/celeb.gif')),
+                              items[selected.value]
+                            ]),
+                          )),
+                      content: Text(
+                        "Congratulations You Won \n" + rewards,
+                        style: TextStyle(
+                            color: Colors.yellow,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(ctx).pop();
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(14),
+                            child: const Text(
+                              "OK",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   );
                 },
-                styleStrategy: UniformStyleStrategy(borderColor: primaryColor,borderWidth:2,color: gcardGrey.withOpacity(.7),),
+                styleStrategy: UniformStyleStrategy(
+                  borderColor: primaryColor,
+                  borderWidth: 2,
+                  color: gcardGrey.withOpacity(.7),
+                ),
                 indicators: <FortuneIndicator>[
                   FortuneIndicator(
-                    alignment:Alignment.topCenter,
+                    alignment: Alignment.topCenter,
                     child: TriangleIndicator(
                       color: primaryColor,
                       width: 20.0,

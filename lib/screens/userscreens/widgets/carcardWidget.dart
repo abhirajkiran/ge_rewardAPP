@@ -98,7 +98,6 @@ import 'package:flutter/widgets.dart';
 import 'package:ge_2/core/colors.dart';
 import 'package:ge_2/screens/userscreens/wheelScreen.dart';
 
-
 class VehicleCardWidget extends StatelessWidget {
   final String make;
   final String model;
@@ -113,20 +112,19 @@ class VehicleCardWidget extends StatelessWidget {
     required this.model,
     required this.plateNo,
     required this.image,
-    required this.invoice, required this.status,
+    required this.invoice,
+    required this.status,
   });
 
   @override
   Widget build(BuildContext context) {
-    
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         print('jjj');
-         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => spinWheelScreen()),
-                          );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => spinWheelScreen()),
+        );
       },
       child: Card(
         color: Colors.grey.withOpacity(.2),
@@ -169,21 +167,34 @@ class VehicleCardWidget extends StatelessWidget {
                     style: TextStyle(color: gWhiteColor),
                   ), */
 
-                  status==true ?Row(
-                    children: [
-                      Text('Grand Total : AED ' + invoice.toString(),style: TextStyle(color: gWhiteColor),
-                      ),
-                      SizedBox(width: 5,),
-                      Icon(Icons.check_circle,color: Colors.green,)
-                    ],
-                  ) :Row(
-                    children: [
-                      Text('Grand Total : AED ' + invoice.toString(),style: TextStyle(color: gWhiteColor),
-                      ),
-                      SizedBox(width: 5,),
-                      Icon(Icons.timer_outlined,color:  Colors.grey)
-                    ],
-                  )
+                  status == true
+                      ? Row(
+                          children: [
+                            Text(
+                              'Grand Total : AED ' + invoice.toString(),
+                              style: TextStyle(color: gWhiteColor),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.check_circle,
+                              color: Colors.green,
+                            )
+                          ],
+                        )
+                      : Row(
+                          children: [
+                            Text(
+                              'Grand Total : AED ' + invoice.toString(),
+                              style: TextStyle(color: gWhiteColor),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(Icons.timer_outlined, color: Colors.grey)
+                          ],
+                        )
                 ],
               ),
             ),
@@ -197,7 +208,8 @@ class VehicleCardWidget extends StatelessWidget {
                         height: 30,
                         width: 30,
                         child: Image(
-                            image: AssetImage("lib/assets/images/gificon.png"))),
+                            image:
+                                AssetImage("lib/assets/images/gificon.png"))),
                   ),
                 ),
                 SizedBox(
