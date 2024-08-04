@@ -58,11 +58,11 @@ class _bottomNavWidgetState extends State<bottomNavWidget> {
                 IconButton(
                   enableFeedback: false,
                   onPressed: () {
-                    Navigator.push(
+                   /*  Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => claimedRewardPage()),
-                          );
+                          ); */
                     setState(() {
                       widget.pageIndex = 1;
                        
@@ -70,12 +70,12 @@ class _bottomNavWidgetState extends State<bottomNavWidget> {
                   },
                   icon: widget.pageIndex == 1
                       ? const Icon(
-                          Icons.work_rounded,
+                          Icons.card_giftcard,
                           color:Colors.yellow,
                           size: 35,
                         )
                       : const Icon(
-                          Icons.work_outline_outlined,
+                          Icons.card_giftcard_outlined,
                           color: Colors.white,
                           size: 35,
                         ),

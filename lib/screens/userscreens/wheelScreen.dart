@@ -7,6 +7,7 @@ import 'package:ge_2/screens/userscreens/widgets/alertScreenWidget.dart';
 import 'package:ge_2/screens/userscreens/widgets/bottomNavWidget.dart';
 import 'package:ge_2/screens/userscreens/widgets/bottomNavWidget_1.dart';
 import 'package:rxdart/rxdart.dart';
+import 'dart:math';
 
 class spinWheelScreen extends StatefulWidget {
   const spinWheelScreen({Key? key}) : super(key: key);
@@ -37,6 +38,10 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
     '70% Discount On Your Next Periodic Service',
     'Free Next Periodic Service',
   ];
+  static const _chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+Random _rnd = Random();
+
+
 
   @override
   void dispose() {
@@ -44,8 +49,12 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
     super.dispose();
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
+    String getRandomString(int length) => String.fromCharCodes(Iterable.generate(
+    length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(.2),
       bottomNavigationBar: bottomNavWidget1(),
@@ -169,7 +178,16 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
                 });
                 }else{
                   print('error');
-                  showDialog(context: context, builder:(ctx)=>AlertScreenWidget(message: "You Already Claimed The Reward Check Your Rewards Section",page: UserHomeScreen(),page2:claimedRewardPage() ,));
+                  showDialog(context: context, builder:(ctx)=>AlertScreenWidget(message: "You Already Claimed The Reward Check Your Rewards Section",page: UserHomeScreen(),
+                  page2:claimedRewardPage(
+                    descriptionMain:"" ,
+                    descriptionSub: rewards,
+                    giftId:getRandomString(10) ,
+                    status:true ,
+                    validity: '31-12-2024',
+                    
+                    image: items[selected.value],
+                  ) ,));
                   
                 }
 
@@ -196,5 +214,10 @@ class _spinWheelScreenState extends State<spinWheelScreen> {
       ),
       //bottomNavigationBar: bottomNavWidget(),
     );
+    
   }
+  String getRandomString(int length) => String.fromCharCodes(Iterable.generate(
+    length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
+  
 }
+

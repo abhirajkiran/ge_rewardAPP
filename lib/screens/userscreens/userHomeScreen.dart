@@ -242,7 +242,7 @@ class carListWidget extends StatelessWidget {
           Container(
             child: Center(
                 child: Text(
-              'Ferrari',
+              'Porsche',
               style: TextStyle(color: gWhiteColor),
             )),
             height: 20,
@@ -258,7 +258,7 @@ class carListWidget extends StatelessWidget {
           Container(
               child: Center(
                   child: Text(
-                'Ferrari',
+                'Lamborghini',
                 style: TextStyle(color: gWhiteColor),
               )),
               decoration: BoxDecoration(

@@ -86,12 +86,12 @@ class _bottomNavWidget1State extends State<bottomNavWidget1> {
                   },
                   icon: pageIndex == 2
                       ? const Icon(
-                          Icons.work_rounded,
+                          Icons.card_giftcard,
                           color:Colors.yellow,
                           size: 35,
                         )
                       : const Icon(
-                          Icons.work_outline_outlined,
+                          Icons.card_giftcard_outlined,
                           color: Colors.white,
                           size: 35,
                         ),

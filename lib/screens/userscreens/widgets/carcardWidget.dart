@@ -96,8 +96,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ge_2/core/colors.dart';
+import 'package:ge_2/screens/userscreens/userHomeScreen.dart';
 import 'package:ge_2/screens/userscreens/wheelScreen.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:ge_2/screens/userscreens/widgets/alertScreenWidget.dart';
 
 class VehicleCardWidget extends StatelessWidget {
   final String make;
@@ -121,11 +123,15 @@ class VehicleCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('jjj');
-        Navigator.push(
+        if(status==true){
+           Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => spinWheelScreen()),
         );
+        }else{
+         showDialog(context: context, builder: (context)=> AlertScreenWidget(message: "Pay The Pending Invoices To Get Exicting Gifts", page: UserHomeScreen(), page2: UserHomeScreen()));
+        }
+        
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -166,10 +172,7 @@ class VehicleCardWidget extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
-                    /* Text(
-                      'Grand Total : AED ' + invoice.toString()+,
-                      style: TextStyle(color: gWhiteColor),
-                    ), */
+                  
         
                     status == true
                         ? Row(
@@ -238,12 +241,7 @@ class VehicleCardWidget extends StatelessWidget {
                       )),
                 ],
               ),
-              /* Positioned(
-                top: 10,
-                right: 10,
-                left: double.infinity,
-                bottom: double.infinity,
-                  child: Image(image: AssetImage("lib/assets/images/gificon.png"))) */
+             
             ],
           ),
         ),
