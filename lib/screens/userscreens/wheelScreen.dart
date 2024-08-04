@@ -180,7 +180,7 @@ Random _rnd = Random();
                   print('error');
                   showDialog(context: context, builder:(ctx)=>AlertScreenWidget(message: "You Already Claimed The Reward Check Your Rewards Section",page: UserHomeScreen(),
                   page2:claimedRewardPage(
-                    descriptionMain:"" ,
+                    descriptionMain:"Discount" ,
                     descriptionSub: rewards,
                     giftId:getRandomString(10) ,
                     status:true ,

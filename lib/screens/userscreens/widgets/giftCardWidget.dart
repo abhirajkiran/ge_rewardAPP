@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ge_2/core/colors.dart';
+import 'package:ge_2/screens/userscreens/qrCodeScreen.dart';
 import 'package:ge_2/screens/userscreens/userHomeScreen.dart';
 import 'package:ge_2/screens/userscreens/wheelScreen.dart';
 import 'package:badges/badges.dart' as badges;
@@ -14,25 +15,31 @@ class giftCardWidget extends StatelessWidget {
   final String validity;
 
   final Widget image;
-  
+
   final bool status;
 
   giftCardWidget({
-    
-    required this.status, required this.giftId, required this.descriptionMain, required this.validity, required this.image, required this.descriptionSub,
+    required this.status,
+    required this.giftId,
+    required this.descriptionMain,
+    required this.validity,
+    required this.image,
+    required this.descriptionSub,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-
-        
+        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => qrCodeScreen(descriptionSub: descriptionSub,giftId: giftId,status: status,)),
+                          );
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Card(
-           
           color: Colors.grey.withOpacity(.2),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,8 +75,6 @@ class giftCardWidget extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 8),
-                  
-        
                     status == true
                         ? Row(
                             children: [
@@ -89,7 +94,7 @@ class giftCardWidget extends StatelessWidget {
                         : Row(
                             children: [
                               Text(
-                                 'Status : Available',
+                                'Status : Available',
                                 style: TextStyle(color: gWhiteColor),
                               ),
                               SizedBox(
@@ -101,16 +106,25 @@ class giftCardWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
+              /* Column(
                 children: [
-                  
-                  SizedBox(
-                      height: 120,
-                      width: 120,
-                      child: image),
+                  Container(height: 120, width: 120, child: image),
                 ],
-              ),
-             
+              ), */
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => qrCodeScreen(descriptionSub: descriptionSub,giftId: giftId,status: status,)),
+                          );
+                },
+                child: Column(
+                  children: [
+                    Container(height: 120, width: 120, child: image),
+                  ],
+                ),
+              )
             ],
           ),
         ),
