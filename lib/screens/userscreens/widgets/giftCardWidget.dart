@@ -32,10 +32,14 @@ class giftCardWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => qrCodeScreen(descriptionSub: descriptionSub,giftId: giftId,status: status,)),
-                          );
+          context,
+          MaterialPageRoute(
+              builder: (context) => qrCodeScreen(
+                    descriptionSub: descriptionSub,
+                    giftId: giftId,
+                    status: status,
+                  )),
+        );
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
@@ -79,7 +83,7 @@ class giftCardWidget extends StatelessWidget {
                         ? Row(
                             children: [
                               Text(
-                                'Status : Claimed ',
+                                'Status : Available',
                                 style: TextStyle(color: gWhiteColor),
                               ),
                               SizedBox(
@@ -87,7 +91,7 @@ class giftCardWidget extends StatelessWidget {
                               ),
                               Icon(
                                 Icons.check_circle,
-                                color: Colors.grey,
+                                color: Colors.green,
                               )
                             ],
                           )
@@ -100,7 +104,7 @@ class giftCardWidget extends StatelessWidget {
                               SizedBox(
                                 width: 5,
                               ),
-                              Icon(Icons.timer_outlined, color: Colors.green)
+                              Icon(Icons.timer_outlined, color: Colors.grey)
                             ],
                           )
                   ],
@@ -112,16 +116,20 @@ class giftCardWidget extends StatelessWidget {
                 ],
               ), */
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => qrCodeScreen(descriptionSub: descriptionSub,giftId: giftId,status: status,)),
-                          );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => qrCodeScreen(
+                              descriptionSub: descriptionSub,
+                              giftId: giftId,
+                              status: status,
+                            )),
+                  );
                 },
                 child: Column(
                   children: [
-                    Container(height: 120, width: 120, child: image),
+                    Container(height:100, width:70, child: image),
                   ],
                 ),
               )

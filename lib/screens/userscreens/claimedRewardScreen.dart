@@ -18,18 +18,20 @@ class claimedRewardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.withOpacity(.2),
-      bottomNavigationBar: bottomNavWidget(pageIndex:1,),
-      body:Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            giftCardWidget(status: status, giftId: giftId, descriptionMain: descriptionMain, validity: validity, image: image, descriptionSub: descriptionSub)
-          ],
-        ),
-      ) ,
-
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.grey.withOpacity(.2),
+        bottomNavigationBar: bottomNavWidget(pageIndex:1,),
+        body:Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              giftCardWidget(status: status, giftId: giftId, descriptionMain: descriptionMain, validity: validity, image: image, descriptionSub: descriptionSub)
+            ],
+          ),
+        ) ,
+      
+      ),
     );
   }
 }

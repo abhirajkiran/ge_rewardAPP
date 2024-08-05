@@ -208,7 +208,7 @@ class VehicleCardWidget extends StatelessWidget {
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 120),
+                    padding: const EdgeInsets.only(left:100),
                     child: GestureDetector(
                       onTap: () {},
                       child:
