@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "580710277390",
+    "project_id": "rewardapp-87211",
+    "storage_bucket": "rewardapp-87211.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580710277390:android:a3e0b4e1ba6c4d0e89775f",
+        "android_client_info": {
+          "package_name": "com.example.ge_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDymfmZTm7n2yP7M6AZ0GFLLfXliYFNeHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:ge_2/core/colors.dart';
@@ -99,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.only(bottom: 20),
                     child: ElevatedButton(
                       onPressed: () {
-                        /* FirebaseAuth.instance
+                        FirebaseAuth.instance
                             .signInWithEmailAndPassword(
                                 email: _emailcontroller.text,
                                 password: _passwordcontroller.text)
@@ -109,12 +110,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             MaterialPageRoute(
                                 builder: (context) => UserHomeScreen()),
                           );
-                        }); */
-                         Navigator.push(
+                        });
+                        /*  Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => UserHomeScreen()),
-                          );
+                          ); */
                         print('aacc');
                         print(_emailcontroller.text);
                         print(_passwordcontroller.text);

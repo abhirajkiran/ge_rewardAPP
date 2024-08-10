@@ -1,14 +1,19 @@
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:ge_2/firebase_options.dart';
 import 'package:ge_2/screens/authentication/loginscreen.dart';
 import 'package:ge_2/screens/userscreens/onbordingscreen.dart';
 import 'package:ge_2/screens/userscreens/userHomeScreen.dart';
 import 'package:ge_2/screens/userscreens/wheelScreen.dart';
 
 
-void main() {
-  /* WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); */
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+  
      runApp(const MyApp());
   
 }
